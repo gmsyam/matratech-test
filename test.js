@@ -8,6 +8,7 @@ function cachestorage(){
     }
     
 function handlerequest() {
+        //Created posts api using express which is hosted in the following location
         let url = 'http://localhost:3000/api/posts/'
         axios.get(url)
       .then(function (response) {
@@ -37,18 +38,3 @@ function filterItemsinArray(){
    document.getElementsByClassName('filter')[0].innerHTML =  '<h6>Filter Array </h6>' + JSON.stringify(filteredArray);
 }
 
-function httpGet()
-{
-    theUrl = "https://webscraper.io/test-sites/tables";
-     var xmlHttp = new XMLHttpRequest();
-     xmlHttp.onreadystatechange = function() { 
-         if (xmlHttp.readyState == 4 && xmlHttp.status == 200){
-            console.log(xmlHttp.responseText);
-            let cheerioObj =cheerio.load(xmlHttp.responseText);
-            document.getElementsByClassName('scarpe')[0].innerHTML = cheerioObj.html('meta');
-         }
-             
-     }
-     xmlHttp.open("GET", theUrl, true); // true for asynchronous 
-     xmlHttp.send(null);
-}
